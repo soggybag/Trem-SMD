@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "Trem")(type "KiCad")(uri "${KIPRJMOD}/Trem.pretty")(options "")(descr "Trem project footprints"))
+)
