@@ -74,3 +74,13 @@ Discussion 2026-09-29. Baseline: **Trem SMD** (`Trem_23`, TL064 LFO + discrete L
 - Target AUDIO top frequency: ~500 Hz (15n) or ~800 Hz (10n)?
 - Should RANGE be a toggle, or a footswitchable option (CD4053 makes that easy)?
 - Keep C8 at 10n in LFO mode for the smoothest thump-free sweep, or accept 1n everywhere?
+
+## Trem v2 with RANGE vs a separate Frobnicator (2026-10-02)
+
+- Bench test proved the Trem's discrete VCA works well (bleed a few mV, sounds good). With the planned **RANGE switch** (audio rate), an **LFO-rate LED**, and the layout fixes, Trem v2 covers everything the Frobnicator does: RATE, DEPTH, RANGE, rate LED. It adds SHAPE and SQ/TRI.
+- **So the separate Frobnicator SMD may be moot.** What it would still offer:
+  - the 3080/LM13700 OTA character (if that's what makes the original special);
+  - a simpler 3-knob pedal;
+  - a socket for the user's vintage 3080.
+- Suggestion: make **Trem v2 the audio-rate platform**. Keep the Frobnicator SMD draft on hold unless an A/B against the original shows the OTA sound is worth a separate pedal.
+- Borrow from the Frobnicator: its rate LED sits *in the control-current path* (no extra supply draw that varies with the LFO). In the Trem the tail current (≤ 0.3 mA) is too small to light an LED that way, so drive it from +9V with a follower instead (see Build Notes).

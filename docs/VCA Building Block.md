@@ -69,6 +69,20 @@ The Trem's VCA is a discrete version of the classic **LM3086 transistor-array VC
 - Trade-offs: the NE570 gain cells are cleaner (lower distortion and noise, wider range). For a tremolo, the discrete pair's soft saturation is arguably a feature.
 - Recommended path: breadboard the current-steering crossfader before committing a PCB.
 
+### Frobnicator / audio-rate mode (2026-10-02: noted as a good fit)
+
+- The transistors are far faster than any audio-rate LFO, so the VCA itself isn't the limit. The **control path** is:
+  - shrink/switch C8 (U1A's 160 Hz smoothing);
+  - check that U1A can follow kHz modulation.
+- **Bleed becomes a tone:** at audio rate the residual control bleed (a few mV here) is an audible "carrier" at the LFO frequency rather than a thump. RV4 may need to be easier to reach, or nulled at audio rate.
+- This is the same plan as the Trem v2 RANGE switch (C6/C7/C8 switched; see `Trem Roadmap.md`).
+
+### Ugly Face 4 "Dynamic" (2026-10-02: noted as a good fit)
+
+- Envelope-controlled VCA on the 555 square (and/or dry): drive the tail from the envelope follower instead of the LFO.
+- The square is a large signal, so it needs the same ÷48-style attenuation into the pair.
+- Envelope speed (ms) makes bleed audible as attack thumps (see the Penfold notes), so keep the envelope smoothed and RV4-style trimming available.
+
 ### Other uses
 
-Frobnicator (audio-rate trem: the pair is fast enough), the Ugly Face 4 "Dynamic" VCA, any LFO tremolo or envelope swell where a chip VCA is overkill.
+Any LFO tremolo or envelope swell where a chip VCA is overkill.
