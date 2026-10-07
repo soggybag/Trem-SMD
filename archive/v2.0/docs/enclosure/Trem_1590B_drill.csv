@@ -1,0 +1,8 @@
+Side,Label,X (mm),Y (mm),"Diameter (mm, raw aluminium)"
+A,RATE,14.0,38.5,7.5
+A,DEPTH,-14.25,38.5,7.5
+A,LED (3 mm),0.0,38.5,3.2
+A,SHAPE,0.0,19.5,7.5
+A,"SQ/TRI toggle (SW1, sub-mini)",16.5,18.0,5.2
+A,"RANGE toggle (SW2, sub-mini)",-16.5,18.0,5.2
+A,Footswitch 3PDT,0.0,-37.5,12.2

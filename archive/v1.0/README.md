@@ -22,3 +22,5 @@
 - `Trem_23_schematic.pdf`
 - `docs`/
 - `parts.csv`
+
+`production/` holds the files sent to JLCPCB for v1.0 (copied from `production/v1.0-old-JLCPCB-do-not-upload`).

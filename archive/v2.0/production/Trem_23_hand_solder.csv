@@ -1,0 +1,10 @@
+Designator,Value,Footprint,Qty,Note
+RV1,A10k,Alpha RD901F-40 9mm vertical,1,"RATE - back side, top row; solder both mounting tabs"
+RV3,B100k,Alpha RD901F-40 9mm vertical,1,"DEPTH - back side, top row; solder both mounting tabs"
+RV2,B100k,Alpha RD901F-40 9mm vertical,1,"SHAPE - back side, centre; solder both mounting tabs"
+C3,470u 16V,CP_Radial_D8.0mm_P3.50mm,1,"VA reservoir electrolytic - top side, observe polarity"
+SW1,SQ/TRI,Taiway 200 sub-mini SPDT,1,"Back side, outside-right (pin 2 = common)"
+SW2,LFO/AUDIO,Taiway 200 sub-mini SPDT,1,"RANGE - back side, outside-left (pin 2 = common)"
+D2,LED,LED_D3.0mm,1,"3mm red / high-efficiency LED, back side between RATE and DEPTH: square pad = cathode (short leg). Pulses with the LFO"
+J9,IN/LED/GND/OUT,PinHeader_1x04_P2.54mm,1,"Ribbon header to the footswitch board"
+J1 J2 J4 J6,wire pads,SolderWire 0.9mm,4,"+9V, GND, IG, OG"
