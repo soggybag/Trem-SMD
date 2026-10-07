@@ -84,3 +84,36 @@ Discussion 2026-09-29. Baseline: **Trem SMD** (`Trem_23`, TL064 LFO + discrete L
   - a socket for the user's vintage 3080.
 - Suggestion: make **Trem v2 the audio-rate platform**. Keep the Frobnicator SMD draft on hold unless an A/B against the original shows the OTA sound is worth a separate pedal.
 - Borrow from the Frobnicator: its rate LED sits *in the control-current path* (no extra supply draw that varies with the LFO). In the Trem the tail current (≤ 0.3 mA) is too small to light an LED that way, so drive it from +9V with a follower instead (see Build Notes).
+
+## Trem v2 plan (2026-10-02): 1590B, audio rate, fewer extended parts
+
+**Decided:** stay in the **1590B**. v2 = RANGE (audio rate) + bench fixes (pot lug swap, RATE/DEPTH spacing with 9 mm pots, SQ/TRI toggle to the other side, bigger pads or 1×4 header, JLC rotation offsets) + extended-part reduction. Optional: LFO-rate LED. Work in place in the Trem repo (from tag `v1.0`).
+
+**RANGE:** small "audio" caps always fitted; CD4053 (C6742) switches the big "LFO" caps in parallel for C6 (integrator), C7 (Schmitt edge) and C8 (DEPTH smoothing). Driven by one SPDT/SPST toggle. RV4 bleed trim matters more at audio rate.
+
+**Extended parts in v1 (9 lines, $3 each on Economic):** C3 470µ (C970706), C14 10p (C157608), Q1 MMBT5089 (C116160), Q2/Q3 MBT3904DW1 (C110150), Q4 MMBT3906 (C84105), R13 270k (C17589), R17 4M7 (C17674), RV4 3314J (C58391), U1 TL064 (C402159). Checked basic: C6 470n (C13967), C10 220p (C107145).
+
+| Part | Change | Status |
+|---|---|---|
+| C14 10p | → 22p C0G **C1804** | basic ✓ |
+| Q4 MMBT3906 | → same part, CJ **C2910191** | Preferred Extended ✓ (no loading fee on Economic) |
+| R17 4M7 | → 2 × 2M2 in series (**C26113**) = 4.4M | **status unverified** (JLC page ambiguous). If 2M2 turns out Extended at BOM upload, this saves nothing: revert to one 4M7 |
+| R13 270k | → 220k (**C17556**) + 47k (**C17713**) in series = 267k | 47k basic ✓; 220k listed, confirm basic |
+| RV4 trim | hand-solder (THT 3362P/3296W or the 3314J) | no fee |
+| C3 470µ | hand-solder THT radial 470µ 16V (or find a basic SMD electrolytic) | no fee |
+| U1 TL064 | keep ($3), or 2 × TL072 (C6961 basic, +~5 mA and board space) | decide; LM324 rejected (skews the LFO) |
+| Q1 MMBT5089 | keep, or BC847C/BC850C (hFE 420–800) if a Basic/Preferred one exists | check at order |
+| Q2/Q3 MBT3904DW1 | **keep**: matched dual for VCA balance (one line covers both) | |
+| new: CD4053 | C6742 | confirm Basic/Preferred at order; fallback 3PDT toggle |
+
+Result: 9 extended lines → about 2–3 (Q2/Q3, maybe U1, maybe Q1).
+
+### v2 schematic draft (2026-10-02): done, awaiting review
+
+- **Decisions:** keep the TL064; LED included.
+- **RANGE block:** U2 CD4053 (C6742). C6/C7/C8 are now the always-fitted AUDIO values (10n / 1n / 220p). The LFO caps C17 470n, C18 33n, C19 10n switch in through U2 when SW2 (Taiway 200 sub-mini, hand-soldered) is at +9V. C20 100n decouples U2.
+  - Rates: LFO ≈ 2–17 Hz (as v1); AUDIO ≈ 100–800 Hz.
+- **LED:** Q5 MMBT3904 (C20526) emitter follower from TRI (via R35 10k) drives D2 → R4 → LED_K. It pulses at the LFO rate, is off in bypass, and runs from +9V (not VA). Use a red / high-efficiency LED (a blue one barely lights from a ~1.4–5.4 V emitter swing).
+- **Parts:** C14 22p (C1804); Q4 C2910191 (Preferred Extended); R13 220k + R34 47k; R17 2M2 + R33 2M2; RV4 and C3 (now a THT radial) hand-soldered (excluded from BOM/CPL).
+- **Pot direction:** fixed in the layout (9 mm RD901F on B.Cu with the verified orientation, as on Hyper Fuzz v1.1), not in the schematic.
+- ERC 0. Next: user review → PCB (1590B, 9 mm pots, toggles, bigger pads/header, rotation offsets).
