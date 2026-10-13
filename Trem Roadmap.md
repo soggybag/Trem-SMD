@@ -149,6 +149,7 @@ On the v2.0 unit (Unit #2), RV4's best point was at its end stop: 20 mV of bleed
 - **Range:** turning RV4 moves load from one side to the other. That's about **±13%** around the centre, so it covers this unit's 7% with margin, in **either direction**.
 - **Trim procedure (unchanged):** no input, DEPTH max, RATE slow, OUT at 10 mV/div AC, turn RV4 for minimum. Then check the AUDIO range at the same setting.
 - No FB–VB patch footprint is needed.
+- **Schematic done (2026-10-13), as built:** R24/R25 **kept at 10k** (C17414, proven) instead of 9k1. Each side sees 10–12k, ~11k at centre. The range is the same, about ±12%, and no new part is needed. RV4 2k, wiper to VA; R26 20k (C4328, same as R29) to VB; RV4 out of BOM/CPL. ERC 0, rev 2.1. Q2 still MBT3904DW1 (DMMT3904W pending its pin-out check). **PCB not updated yet.**
 - **Trimmer: a multi-turn Bourns 3296W 2k (top adjust, THT), hand-soldered** and excluded from the BOM/CPL, like C3. (Decided 2026-10-13.)
   - Why: the wider range makes a single-turn too touchy. The bleed changes ~12 mV per 1% of balance. Getting to ~2.5 mV needs ~0.2%:
     - single-turn (~260° for ±13%): about 2° of rotation;

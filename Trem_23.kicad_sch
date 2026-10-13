@@ -7,7 +7,7 @@
 	(title_block
 		(title "Trem 23 - SMD")
 		(date "2026-09-24")
-		(rev "1.0")
+		(rev "2.1")
 		(comment 1 "Converted from Eagle Trem-22-01 for JLCPCB SMD assembly")
 		(comment 2 "Super-Freq.com")
 	)
@@ -5303,7 +5303,7 @@
 		)
 		(uuid "ee2e4a91-6a4a-4f5d-a770-ae1b94e5b612")
 	)
-	(text "RV4 pin 1 intentionally open (rheostat)"
+	(text "RV4 balance trim (v2.1): 3296W 2k multi-turn, wiper to VA; null with RV4 near centre. R26 mirrors R29"
 		(exclude_from_sim no)
 		(at 121.92 238.76 0)
 		(effects
@@ -5350,12 +5350,6 @@
 		(uuid "1a0f9ee5-c236-4d19-88f3-6539f68a376b")
 	)
 	(junction
-		(at 144.78 167.64)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "1e9e054a-b148-41e4-b700-ab1c62408c51")
-	)
-	(junction
 		(at 223.52 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5390,12 +5384,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2e8b71ef-33d3-4d0d-99af-d45fcd7d15ed")
-	)
-	(junction
-		(at 190.5 167.64)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3356ecf7-b7c8-4578-a519-96cfededcc40")
 	)
 	(junction
 		(at 302.26 198.12)
@@ -5577,9 +5565,121 @@
 		(color 0 0 0 0)
 		(uuid "ffbe50de-ca51-478f-90b2-2246c0126bcb")
 	)
-	(no_connect
-		(at 209.55 182.88)
-		(uuid "76f724f9-bda9-4d81-abe5-d78340ee93f1")
+	(junction
+		(at 167.64 167.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2afb6976-3bef-4ddb-81ff-cf028094ddf8")
+	)
+	(wire
+		(pts
+			(xy 205.74 182.88) (xy 205.74 186.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f70f9428-8abb-48ae-82e4-b38f7a74c699")
+	)
+	(wire
+		(pts
+			(xy 200.66 182.88) (xy 205.74 182.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "66f07012-67fe-4dfc-8d74-249270ad4ad7")
+	)
+	(wire
+		(pts
+			(xy 190.5 172.72) (xy 171.45 172.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e096b275-1928-402c-a738-9d496425ffcb")
+	)
+	(wire
+		(pts
+			(xy 190.5 175.26) (xy 190.5 172.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "baeb81df-886c-4188-ad0b-bbdbd53e440d")
+	)
+	(wire
+		(pts
+			(xy 144.78 172.72) (xy 163.83 172.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9a74c1c0-2863-4dfa-a9b2-bf60f1f2e31f")
+	)
+	(wire
+		(pts
+			(xy 144.78 175.26) (xy 144.78 172.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b325451a-494e-4c4d-8b13-48a60f336944")
+	)
+	(wire
+		(pts
+			(xy 167.64 167.64) (xy 167.64 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "51a2d72b-6065-436c-a3f8-3f8006a14fc6")
+	)
+	(wire
+		(pts
+			(xy 167.64 167.64) (xy 190.5 167.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0397044d-9639-4efa-9b6f-481522f8ce83")
+	)
+	(wire
+		(pts
+			(xy 152.4 167.64) (xy 167.64 167.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0fa96ec8-754e-4474-b6b5-1fc57eec2eea")
+	)
+	(wire
+		(pts
+			(xy 190.5 208.28) (xy 190.5 182.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e31a6fa3-f4d0-4e23-ac7d-dc20fb4bbfb3")
+	)
+	(wire
+		(pts
+			(xy 144.78 208.28) (xy 144.78 182.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "be2efba4-94f5-4dbc-ad23-b760f8ecb1c5")
 	)
 	(wire
 		(pts
@@ -5712,17 +5812,6 @@
 			(type default)
 		)
 		(uuid "27304e24-8b43-4e05-b785-05cd78e9df29")
-	)
-	(wire
-		(pts
-			(xy 152.4 167.64)
-			(xy 190.5 167.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2a014395-3099-495e-a471-35df6c26896e")
 	)
 	(wire
 		(pts
@@ -5921,17 +6010,6 @@
 			(type default)
 		)
 		(uuid "4c2440cb-6e40-4d17-93b9-856fb843ffa7")
-	)
-	(wire
-		(pts
-			(xy 190.5 170.18)
-			(xy 190.5 167.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4cd4f845-af33-472a-b29f-e58478aaa9f9")
 	)
 	(wire
 		(pts
@@ -6595,17 +6673,6 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 170.18)
-			(xy 144.78 167.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "aaea6c25-04f1-42cc-9747-79d631d5ef1d")
-	)
-	(wire
-		(pts
 			(xy 144.78 218.44)
 			(xy 144.78 220.98)
 		)
@@ -6881,17 +6948,6 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 208.28)
-			(xy 144.78 177.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d7a94ca3-531f-4484-8a84-0bfb294706ad")
-	)
-	(wire
-		(pts
 			(xy 252.73 55.88)
 			(xy 259.08 55.88)
 		)
@@ -6988,17 +7044,6 @@
 			(type default)
 		)
 		(uuid "e577de21-4a52-455e-8306-aab6d60a9454")
-	)
-	(wire
-		(pts
-			(xy 190.5 208.28)
-			(xy 190.5 177.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e6ff03a1-92af-4276-b046-19ce51e4e308")
 	)
 	(wire
 		(pts
@@ -7120,17 +7165,6 @@
 			(type default)
 		)
 		(uuid "f398b7d6-1105-42dc-98e2-df4ecfc6b9a4")
-	)
-	(wire
-		(pts
-			(xy 200.66 182.88)
-			(xy 201.93 182.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f60b9e4a-e16e-4be8-a267-b1f48b665067")
 	)
 	(wire
 		(pts
@@ -7695,7 +7729,7 @@
 				)
 			)
 		)
-		(property "Value" "18k"
+		(property "Value" "20k"
 			(at 196.85 180.09 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7727,7 +7761,7 @@
 				)
 			)
 		)
-		(property "Description" "Balance trim series"
+		(property "Description" "Q2B collector to VB: mirrors R29 so the trim nulls centred (v2.1)"
 			(at 196.85 182.88 90)
 			(hide yes)
 			(show_name no)
@@ -7738,7 +7772,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17506"
+		(property "LCSC" "C4328"
 			(at 196.85 182.88 90)
 			(hide yes)
 			(show_name no)
@@ -9446,7 +9480,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 190.5 173.99 0)
+		(at 190.5 179.07 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9456,29 +9490,29 @@
 		(dnp no)
 		(uuid "3a777b0f-8815-4a9c-a92d-2ed030af2dd8")
 		(property "Reference" "R25"
-			(at 193.04 172.72 0)
+			(at 187.96 178.82 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "10k"
-			(at 193.04 175.26 0)
+			(at 187.96 181.36 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 190.5 173.99 0)
+			(at 190.5 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9489,7 +9523,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 190.5 173.99 0)
+			(at 190.5 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9499,8 +9533,8 @@
 				)
 			)
 		)
-		(property "Description" "VCA collector load"
-			(at 190.5 173.99 0)
+		(property "Description" "VCA collector load (to RV4 end B)"
+			(at 190.5 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9511,7 +9545,7 @@
 			)
 		)
 		(property "LCSC" "C17414"
-			(at 190.5 173.99 0)
+			(at 190.5 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13695,17 +13729,17 @@
 	)
 	(symbol
 		(lib_id "Device:R_Potentiometer_Trim")
-		(at 205.74 182.88 270)
+		(at 167.64 172.72 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a91726f1-9047-4ae8-888f-bbef7faddab5")
 		(property "Reference" "RV4"
-			(at 205.74 180.08 90)
+			(at 167.64 176.53 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13714,8 +13748,8 @@
 				)
 			)
 		)
-		(property "Value" "5k"
-			(at 205.74 177.78 90)
+		(property "Value" "2k"
+			(at 167.64 179.07 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13724,8 +13758,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Potentiometer_SMD:Potentiometer_Bourns_3314J_Vertical"
-			(at 205.74 182.88 90)
+		(property "Footprint" "Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical"
+			(at 167.64 172.72 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13736,7 +13770,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 205.74 182.88 90)
+			(at 167.64 172.72 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13746,8 +13780,8 @@
 				)
 			)
 		)
-		(property "Description" "Balance / bleed-through trim, Bourns 3314J SMD, JLC-placed (extended part)"
-			(at 205.74 182.88 90)
+		(property "Description" "VCA balance trim (v2.1): symmetric collector-load trim, wiper to VA. Bourns 3296W 2k multi-turn, THT, hand-soldered"
+			(at 167.64 172.72 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13757,8 +13791,8 @@
 				)
 			)
 		)
-		(property "LCSC" "C58391"
-			(at 205.74 182.88 90)
+		(property "LCSC" ""
+			(at 167.64 172.72 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13776,15 +13810,6 @@
 		)
 		(pin "3"
 			(uuid "e8f5a79b-bc18-4b68-926f-f759f797efc9")
-		)
-		(property "FT Rotation Offset" "180"
-			(at 205.74 180.08 0)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
 		)
 		(instances
 			(project "Trem_23"
@@ -14868,7 +14893,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 144.78 173.99 0)
+		(at 144.78 179.07 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14878,7 +14903,7 @@
 		(dnp no)
 		(uuid "d48eae71-6e9e-470a-b6ec-327db525b2b1")
 		(property "Reference" "R24"
-			(at 142.24 172.72 0)
+			(at 142.24 177.8 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14889,7 +14914,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 142.24 175.26 0)
+			(at 142.24 180.34 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14900,7 +14925,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 144.78 173.99 0)
+			(at 144.78 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14911,7 +14936,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 144.78 173.99 0)
+			(at 144.78 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14921,8 +14946,8 @@
 				)
 			)
 		)
-		(property "Description" "VCA collector load"
-			(at 144.78 173.99 0)
+		(property "Description" "VCA collector load (to RV4 end A)"
+			(at 144.78 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14933,7 +14958,7 @@
 			)
 		)
 		(property "LCSC" "C17414"
-			(at 144.78 173.99 0)
+			(at 144.78 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
