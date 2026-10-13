@@ -16,3 +16,8 @@ One entry per physical pedal. Write the unit number inside the enclosure.
 - **Fix:** separated the lugs. Tremolo works again.
 - **Also worth doing:** re-flow the small J3 (IN) and J5 (OUT) wire pads. They're the likely cause of the first "no audio" episode.
 - **Lesson:** after any rework or boxing, measure **U1 pin 8 → pin 7** with the power off; it should read kilohms, not ~0 Ω. The v2 layout (9 mm pots) has no lugs from neighbouring pots within 5 mm of each other.
+
+## Unit #2: board v2.0 (git tag `v2.0`)
+
+- **2026-10-12:** bench-tested (`docs/Test Procedure v2.0.md`). DC, LFO, RANGE, LED all OK.
+- **Mod:** RV4 couldn't reach the VCA null (best at its end stop: 50 mV of audio-rate bleed). Added a **100k from FB (R24 pin 2) to VB**. Re-trimmed: null near the centre, bleed ~2.5 mV.

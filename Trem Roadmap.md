@@ -117,3 +117,7 @@ Result: 9 extended lines → about 2–3 (Q2/Q3, maybe U1, maybe Q1).
 - **Parts:** C14 22p (C1804); Q4 C2910191 (Preferred Extended); R13 220k + R34 47k; R17 2M2 + R33 2M2; RV4 and C3 (now a THT radial) hand-soldered (excluded from BOM/CPL).
 - **Pot direction:** fixed in the layout (9 mm RD901F on B.Cu with the verified orientation, as on Hyper Fuzz v1.1), not in the schematic.
 - ERC 0. Next: user review → PCB (1590B, 9 mm pots, toggles, bigger pads/header, rotation offsets).
+
+## v2.1 (from v2.0 unit testing, 2026-10-12)
+
+- **Widen the VCA balance trim.** On the v2.0 unit, RV4's best point was at the end stop (20 mV of bleed at LFO rate, 50 mV audible at audio rate). The 18–23k range only covers ~±1% of Q2/R24/R25 mismatch. Use R26 15k + RV4 10k, or a symmetric trimmer between R24/R25 with its wiper to VA. Details are in `docs/Test Procedure v2.0.md` §5. **Bench fix proven:** 100k from FB to VB brought the null back to the centre and the bleed down to ~2.5 mV. So v2.1 could also just add an optional 0805 footprint from FB to VB (DNP by default) as well as the wider trim.
