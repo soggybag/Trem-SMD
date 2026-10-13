@@ -147,9 +147,7 @@ The shape of the wave the sound change. The output follows the control Tri (flat
     - If the best point then moves to the **CCW** stop, it's overcorrected: use 220k. If it's still at the CW stop: 47k.
   4. Re-trim. A good result is a dip **in the middle of the travel**, a few mV in the LFO range. Then check the AUDIO range at the same setting.
 - **Result (2026-10-12): 100k fitted from FB to VB; re-trimmed. The null is now near the centre of RV4 (a little to one side), and the bleed is down to ~2.5 mV, from 50 mV.** The tone is much quieter. Unit #1 keeps this mod (log it in the Build Log).
-- **v2.1 change:** make the balance trim symmetric and wider:
-  - Either **R26 15k + RV4 10k** (Rt 15–25k ≈ ±4% mismatch),
-  - or the classic LM3086 arrangement: R24/R25 to the two ends of a trimmer with its wiper to VA, which trims either side.
+- **v2.1 change:** a symmetric collector-load trim (R24/R25 9k1 to the ends of a 2k trimmer, wiper to VA; R26 20k fixed), about ±13% range in either direction. Optionally a matched DMMT3904W pair for Q2. See `Trem Roadmap.md` § v2.1.
 
 ## 6. After boxing
 

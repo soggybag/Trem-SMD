@@ -120,4 +120,53 @@ Result: 9 extended lines → about 2–3 (Q2/Q3, maybe U1, maybe Q1).
 
 ## v2.1 (from v2.0 unit testing, 2026-10-12)
 
-- **Widen the VCA balance trim.** On the v2.0 unit, RV4's best point was at the end stop (20 mV of bleed at LFO rate, 50 mV audible at audio rate). The 18–23k range only covers ~±1% of Q2/R24/R25 mismatch. Use R26 15k + RV4 10k, or a symmetric trimmer between R24/R25 with its wiper to VA. Details are in `docs/Test Procedure v2.0.md` §5. **Bench fix proven:** 100k from FB to VB brought the null back to the centre and the bleed down to ~2.5 mV. So v2.1 could also just add an optional 0805 footprint from FB to VB (DNP by default) as well as the wider trim.
+### Problem
+
+On the v2.0 unit (Unit #2), RV4's best point was at its end stop: 20 mV of bleed at LFO rate, and 50 mV, clearly audible, at audio rate.
+- The v2.0 trim (R26 18k + RV4 5k = Rt 18–23k, Q2B collector to VB) only covers about ±4% of imbalance, and only adds load on one side.
+- This unit needed ~7% (≈1.75 mV of Vbe mismatch in the MBT3904DW1, which isn't a matched pair, plus resistor tolerance).
+- **Bench patch (unit-specific):** 100k from FB to VB moved the null back to the centre; bleed ~2.5 mV.
+  - It is **not** a fix for every board: a unit mismatched the other way would need the opposite patch (~100k piggybacked on R26).
+  - Details are in `docs/Test Procedure v2.0.md` §5.
+
+### Plan: symmetric collector-load trim (classic LM3086 arrangement)
+
+```
+          VA
+          │
+     RV4 2k trimmer (wiper → VA)
+      end A        end B
+        │            │
+     R24 9k1      R25 9k1
+        │            │
+   Q2A C (FB)    Q2B C ── R26 20k ── VB   (fixed: mirrors R29 20k on the FB side)
+```
+
+- **Changes:**
+  - R24/R25 10k → **9k1** each, to the two ends of **RV4 2k** (3314J or 3362P), wiper to VA. At centre each side sees ~10.1k, the same as now.
+  - **R26 18k → 20k fixed** to VB (it mirrors R29). The old one-sided RV4 path is removed.
+- **Balance condition:** (Q2A current change) × (R24eff ∥ R29) = (Q2B current change) × (R25eff ∥ R26). A perfectly matched unit nulls with RV4 centred.
+- **Range:** turning RV4 moves load from one side to the other. That's about **±13%** around the centre, so it covers this unit's 7% with margin, in **either direction**.
+- **Trim procedure (unchanged):** no input, DEPTH max, RATE slow, OUT at 10 mV/div AC, turn RV4 for minimum. Then check the AUDIO range at the same setting.
+- No FB–VB patch footprint is needed.
+- **Trimmer: a multi-turn Bourns 3296W 2k (top adjust, THT), hand-soldered** and excluded from the BOM/CPL, like C3. (Decided 2026-10-13.)
+  - Why: the wider range makes a single-turn too touchy. The bleed changes ~12 mV per 1% of balance. Getting to ~2.5 mV needs ~0.2%:
+    - single-turn (~260° for ±13%): about 2° of rotation;
+    - 25-turn 3296W: about 70°.
+  - Multi-turn cermet also holds its setting better through boxing and knocks.
+  - Footprint: `Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical`. Put the adjust screw where it can be reached with the board in the box if possible. Check Tayda for 2k (code 202).
+
+### Option: matched pair for Q2 (checked 2026-10-13)
+
+- **DMMT3904W-7-F (Diodes Inc), LCSC C155305**, SOT-363.
+  - Matched pair (adjacent die from the same wafer). **Vbe1 − Vbe2: 1 mV typ, 2 mV max**; hFE match within 2%; both at 2 mA / 5 V.
+  - ~6,000 in stock, ~$0.13 each at 50.
+  - Extended part, but MBT3904DW1 (C110150) is extended too. Using it for both Q2 and Q3 keeps it to one line.
+- **What it buys:**
+  - Typical mismatch ~1 mV ≈ 4% current split, so most units would null near the centre.
+  - The 2 mV worst case is ~8%, as bad as this unit. **So it reduces the spread but doesn't remove the need for the trim.**
+  - Only Q2 matters for bleed (Q3's offset is inside the output loop and only shifts DC).
+- **Before switching, check:**
+  - The pin-out against the footprint. The board uses the MBT3904DW1 order: **1 E1, 2 B1, 3 C2, 4 E2, 5 B2, 6 C1**. The DMMT3904W datasheet pin-out is a drawing I couldn't read; it's very likely the same standard SOT-363 dual order, but confirm it from Diodes' DS30311 "Device Schematic and Pin-Out".
+  - The CPL rotation in JLC's viewer (Q2/Q3 needed 180° in v1).
+- **Recommendation:** do the symmetric trim (required). Add the DMMT3904W as a cheap improvement if the pin-out checks out.
