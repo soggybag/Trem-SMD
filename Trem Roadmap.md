@@ -150,12 +150,11 @@ On the v2.0 unit (Unit #2), RV4's best point was at its end stop: 20 mV of bleed
 - **Trim procedure (unchanged):** no input, DEPTH max, RATE slow, OUT at 10 mV/div AC, turn RV4 for minimum. Then check the AUDIO range at the same setting.
 - No FB–VB patch footprint is needed.
 - **Schematic done (2026-10-13), as built:** R24/R25 **kept at 10k** (C17414, proven) instead of 9k1. Each side sees 10–12k, ~11k at centre. The range is the same, about ±12%, and no new part is needed. RV4 2k, wiper to VA; R26 20k (C4328, same as R29) to VB; RV4 out of BOM/CPL. ERC 0, rev 2.1. Q2 still MBT3904DW1 (DMMT3904W pending its pin-out check). **PCB not updated yet.**
-- **Trimmer: a multi-turn Bourns 3296W 2k (top adjust, THT), hand-soldered** and excluded from the BOM/CPL, like C3. (Decided 2026-10-13.)
-  - Why: the wider range makes a single-turn too touchy. The bleed changes ~12 mV per 1% of balance. Getting to ~2.5 mV needs ~0.2%:
-    - single-turn (~260° for ±13%): about 2° of rotation;
-    - 25-turn 3296W: about 70°.
-  - Multi-turn cermet also holds its setting better through boxing and knocks.
-  - Footprint: `Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical`. Put the adjust screw where it can be reached with the board in the box if possible. Check Tayda for 2k (code 202).
+- **Trimmer (changed 2026-10-18): Bourns 3314J-1-202E 2k SMD, LCSC C94513, JLC-placed** (extended, ~$3 fee, same as v2.0's 3314J 5k). FT Rotation Offset 180, as on v2.0.
+  - First choice was a multi-turn 3296W 2k (THT, hand-soldered), because a single-turn is touchy at ±12%: ~2.5 mV of bleed needs ~0.2% of balance, about 2° of rotation.
+  - **Dropped:** the 3296W's through-hole footprint left 24 pads unrouted. The 3314J at its v2.0 spot (60, 42.3) routes cleanly.
+  - **Living with the single-turn:** trim slowly with a good screwdriver; ~5 mV is easy and inaudible at LFO rate. A matched Q2 (below) puts the null nearer the centre.
+- **PCB updated (2026-10-18):** RV4 3314J, full re-route (Freerouting): 0 unconnected, 0 DRC errors, 67 vias (v2.0: 48). One B.Cu VA segment near SW2 narrowed to 0.36 mm (clearance); R3 pad 2 solid to GND (thermal).
 
 ### Option: matched pair for Q2 (checked 2026-10-13)
 

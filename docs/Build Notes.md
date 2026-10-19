@@ -57,7 +57,7 @@
 - **LED D2** between RATE and DEPTH (43.5, 31). It pulses with the LFO via Q5.
 - **Toggles:** SQ/TRI (SW1) moved to the other side (27, 51.5); new **RANGE** (SW2) at (60, 51.5). From outside: RANGE left, SQ/TRI right. Both are Taiway 200 sub-mini.
 - **Wiring:** J3/J5/J7/J8 replaced by the **J9 1×4 header** (IN / LED / G / OUT) centred on the footswitch at the bottom edge. +9V, GND, IG and OG are now the larger UF-style solder pads.
-- **C3** is a THT radial 470 µ (8 mm), hand-soldered, bottom-left. It is excluded from the JLC BOM/CPL. **RV4** (Bourns 3314J SMD trimmer, C58391) is placed by JLC (extended part).
+- **C3** is a THT radial 470 µ (8 mm), hand-soldered, bottom-left. It is excluded from the JLC BOM/CPL. **RV4** (Bourns 3314J SMD trimmer; v2.0 5k C58391, v2.1 2k C94513) is placed by JLC (extended part).
 - **Fully re-placed and re-routed**, with GND pours on both layers. DRC: 0 errors, 0 unconnected (silkscreen warnings only). ERC: 0. Board connectivity identical to the schematic.
 - **Silkscreen:** "TREM v2" and "SUPER-FREQ" on the front, RATE/DEPTH/SHAPE assembly labels, and the header labels on the back. Many reference designators overlap (dense board), so tidy them in KiCad as usual.
 - **Drill:** `enclosure/Trem_1590B_drill.csv` + SVG (Tayda coordinates, enclosure centre at board (43.5, 69.5)). Jack holes are **not** included, because the jack positions on the 1590B are still to be decided.

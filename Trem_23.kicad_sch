@@ -13733,7 +13733,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -13758,7 +13758,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical"
+		(property "Footprint" "Potentiometer_SMD:Potentiometer_Bourns_3314J_Vertical"
 			(at 167.64 172.72 90)
 			(hide yes)
 			(show_name no)
@@ -13780,7 +13780,7 @@
 				)
 			)
 		)
-		(property "Description" "VCA balance trim (v2.1): symmetric collector-load trim, wiper to VA. Bourns 3296W 2k multi-turn, THT, hand-soldered"
+		(property "Description" "VCA balance trim (v2.1): symmetric collector-load trim, wiper to VA. Bourns 3314J-1-202E 2k SMD, JLC-placed (extended)"
 			(at 167.64 172.72 90)
 			(hide yes)
 			(show_name no)
@@ -13791,7 +13791,18 @@
 				)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C94513"
+			(at 167.64 172.72 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Rotation Offset" "180"
 			(at 167.64 172.72 90)
 			(hide yes)
 			(show_name no)

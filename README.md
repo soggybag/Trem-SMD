@@ -12,7 +12,7 @@ A tremolo for guitar in a Hammond 1590B: a TL064 LFO with SHAPE and SQ/TRI, driv
 | SHAPE | RV2 B100k | LFO skew: ramp up ↔ triangle ↔ ramp down |
 | DEPTH | RV3 B100k | Tremolo depth, up to full cut |
 | SQ/TRI | SW1 | Square or triangle LFO |
-| Balance (trim) | RV4 5k | Nulls the LFO "thump" bleed |
+| Balance (trim) | RV4 2k (v2.1: symmetric, wiper to VA) | Nulls the LFO "thump" bleed |
 
 Note: on this revision RATE and DEPTH turn backwards (fully CCW = fast / max) because the back-mounted pots mirror lugs 1 and 3. Fix planned for the next revision.
 
